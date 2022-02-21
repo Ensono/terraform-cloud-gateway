@@ -54,7 +54,7 @@ resource "aws_iam_role_policy" "assume_role_policy" {
 }
 
 resource "aws_iam_role_policy" "ssm_policy" {
-  name   = "${var.global_vars["stack_name"]}-access_bucket-${var.global_vars["env"]}"
+  name   = "${var.global_vars["stack_name"]}-access_ssm-${var.global_vars["env"]}"
   role   = aws_iam_role.cloud_gateway_role.id
-  policy = data.aws_iam_policy_document.bucket_access.json
+  policy = data.aws_iam_policy_document.ssm_access.json
 }
